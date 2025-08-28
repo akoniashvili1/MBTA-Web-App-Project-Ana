@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nearest MBTA Station</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        text-align: center;
+      }
+      h1 {
+        color: #003da5;
+        margin-bottom: 20px;
+      }
+      .location {
+        color: #666;
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+      .station-info {
+        background-color: #f8f9fa;
+        border-left: 4px solid #003da5;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 5px;
+        text-align: left;
+      }
+      .station-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #003da5;
+        margin-bottom: 10px;
+      }
+      .accessibility {
+        font-size: 18px;
+        margin-top: 15px;
+      }
+      .accessible {
+        color: #28a745;
+      }
+      .not-accessible {
+        color: #dc3545;
+      }
+      .back-btn {
+        background-color: #6c757d;
+        color: white;
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-top: 20px;
+        display: inline-block;
+        transition: background-color 0.3s;
+      }
+      .back-btn:hover {
+        background-color: #545b62;
+      }
+      .icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="icon">🚇</div>
+      <h1>Nearest MBTA Station Found!</h1>
+      <p class="location">for <strong>{{ place_name }}</strong></p>
+      
+      <div class="station-info">
+        <div class="station-name">📍 {{ station_name }}</div>
+        
+        <div class="accessibility">
+          <strong>Wheelchair Accessibility:</strong>
+          {% if wheelchair_accessible %}
+            <span class="accessible">♿ Yes - This station is wheelchair accessible</span>
+          {% else %}
+            <span class="not-accessible">❌ No - This station is not wheelchair accessible</span>
+          {% endif %}
+        </div>
+      </div>
+      
+      <a href="/" class="back-btn">← Search Another Location</a>
+    </div>
+  </body>
+</html>
